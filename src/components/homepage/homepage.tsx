@@ -1,12 +1,12 @@
 "use client";
 
 import AiToolsList from "~/components/ai-tools-list";
-import Projects from "~/components/projects";
-import Social from "~/components/social";
-import ToolsList from "~/components/tools-list";
+import Social from "~/components/homepage/social";
+import ToolsList from "~/components/homepage/tools-list";
 import React from "react";
-import HeroBanner from "./hero-banner";
+import HeroBanner from "../hero-banner";
 import Bio from "./bio";
+import Projects from "./projects/projects";
 
 export default function Homepage() {
   return (

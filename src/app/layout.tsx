@@ -15,7 +15,7 @@ export default function RootLayout({
       lang="en"
       className={`${satoshi.variable} ${instrumentSerif.variable}`}
     >
-      <body className="bg-[#FDFFF4]">
+      <body>
         <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>

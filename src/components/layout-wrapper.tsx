@@ -11,10 +11,10 @@ export default function LayoutWrapper({
   return (
     <main className="mx-auto flex min-h-screen max-w-2xl flex-col items-center justify-between gap-20 font-sans">
       {/* Header */}
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col w-full">
         <Header />
         {/* Main Content */}
-        <div className="mx-auto mt-5 w-full max-w-4xl px-8">{children}</div>
+        <div className="mx-auto mt-5 w-full px-8">{children}</div>
       </div>
       {/* Footer */}
       <Footer />

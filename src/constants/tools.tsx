@@ -1,7 +1,6 @@
-import { StarFourIcon } from "@phosphor-icons/react";
 import Image from "next/image";
 
-const aiTools = [
+export const tools = [
   {
     name: "Figma",
     icon: (
@@ -59,26 +58,3 @@ const aiTools = [
     icon: <Image src="/canva.svg" alt="spline" width={20} height={20} />,
   },
 ];
-
-export default function ToolsList() {
-  return (
-    <div className="mt-5 flex w-full flex-col items-start justify-start gap-3">
-      <div className="flex items-center justify-start gap-1 rounded-full bg-gray-100 px-4 py-2 font-serif text-sm leading-tight text-black">
-        <StarFourIcon size={12} />
-        tools
-      </div>
-      
-      <div className="flex flex-wrap items-center justify-start gap-1">
-        {aiTools.map((tool) => (
-          <div
-            key={tool.name}
-            className="flex items-center justify-start gap-1 rounded-full border border-gray-200 px-4 py-2 text-xs font-medium text-black"
-          >
-            {tool.icon}
-            {tool.name}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
