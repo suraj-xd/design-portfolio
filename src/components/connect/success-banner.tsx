@@ -1,4 +1,4 @@
-import { SealCheckIcon } from "@phosphor-icons/react";
+import { SealCheckIcon } from "../phosphorous-icons";
 
 export default function SuccessBanner({
   message,
@@ -7,7 +7,7 @@ export default function SuccessBanner({
 }) {
   return (
     <div className="col-span-2 flex w-fit items-center justify-start gap-1 rounded-lg bg-green-50 px-3 py-2 text-xs text-green-700">
-      <SealCheckIcon size={12} />
+      <SealCheckIcon />
       {message}
     </div>
   );

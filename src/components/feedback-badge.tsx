@@ -1,4 +1,4 @@
-import { XLogoIcon } from "@phosphor-icons/react";
+import { XLogoIcon } from "./phosphorous-icons";
 
 import Link from "next/link";
 import { socialLinkEnum } from "~/constants";
@@ -14,7 +14,7 @@ export default function FeedbackBadge() {
           target="_blank"
           className="font-medium text-black hover:underline"
         >
-          <XLogoIcon size={14} />
+          <XLogoIcon />
         </Link>{" "}
       </p>
     </div>

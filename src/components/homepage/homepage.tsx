@@ -1,5 +1,3 @@
-"use client";
-
 import AiToolsList from "~/components/ai-tools-list";
 import Social from "~/components/homepage/social";
 import ToolsList from "~/components/homepage/tools-list";
@@ -9,7 +7,7 @@ import Bio from "./bio";
 import Projects from "./projects/projects";
 import Metatags from "../comman/metatags";
 
-export default function Homepage() {
+export default async function Homepage() {
   return (
     <React.Fragment>
       <Metatags title="Home" description="Portfolio | Ritu Gaur - UI/UX Designer" image="/og-image.png" />

@@ -1,11 +1,11 @@
-import { CheckIcon, SpinnerIcon, XIcon } from "@phosphor-icons/react";
+import { CheckIcon, SpinnerIcon, CloseIcon } from "../phosphorous-icons";
 import type { FormState, FormData } from "./types";
 
 const buttonConfig = {
   loading: {
     content: (
       <>
-        <SpinnerIcon size={12} className="animate-spin" />
+        <SpinnerIcon />
         Sending...
       </>
     ),
@@ -14,7 +14,7 @@ const buttonConfig = {
   success: {
     content: (
       <>
-        <CheckIcon size={12} />
+        <CheckIcon />
         Sent!
       </>
     ),
@@ -23,7 +23,7 @@ const buttonConfig = {
   error: {
     content: (
       <>
-        <XIcon size={12} />
+        <CloseIcon />
         Try Again
       </>
     ),

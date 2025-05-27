@@ -1,7 +1,6 @@
 import StarFourBadge from "../star-four-badge";
 import { tools } from "~/constants/tools";
 
-
 export default function ToolsList() {
   return (
     <div className="mt-5 flex w-full flex-col items-start justify-start gap-3">

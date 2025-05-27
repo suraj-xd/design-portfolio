@@ -1,7 +1,10 @@
 import { type NextRequest, NextResponse } from "next/server";
 import nodemailer, { type Transporter } from "nodemailer";
 import { z } from "zod";
+import { render } from "@react-email/render";
 import { env } from "~/env";
+import { ContactNotificationEmail } from "~/emails/contact-notification";
+import { ThankYouEmail } from "~/emails/thank-you";
 
 // Define the type for the request body
 interface EmailRequestBody {
@@ -75,35 +78,17 @@ export async function POST(request: NextRequest) {
       });
     });
 
+    // Generate HTML for notification email using React Email
+    const notificationEmailHtml = await render(
+      ContactNotificationEmail({ name, email, message })
+    );
+
     // Email to you (the portfolio owner)
     const myMailOptions = {
       from: email ?? "noreply.portfolio@gmail.com",
       to: validEnv.EMAIL_TO,
       subject: "New Contact Form Message from Portfolio",
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #333; border-bottom: 2px solid #eee; padding-bottom: 10px;">
-            New Contact Form Message
-          </h2>
-          ${name ? `<div style="margin: 20px 0;">
-            <p style="margin: 10px 0;"><strong>Name:</strong></p>
-            <p style="color: #666;">${name}</p>
-          </div>` : ''}
-          ${email ? `<div style="margin: 20px 0;">
-            <p style="margin: 10px 0;"><strong>Email:</strong></p>
-            <p style="color: #666;">${email}</p>
-          </div>` : ''}
-          <div style="margin: 20px 0;">
-            <p style="margin: 10px 0;"><strong>Message:</strong></p>
-            <div style="background: #f5f5f5; padding: 15px; border-radius: 5px; white-space: pre-wrap;">
-              ${message}
-            </div>
-          </div>
-          <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; color: #666; font-size: 12px;">
-            <p>Sent from your portfolio contact form</p>
-          </div>
-        </div>
-      `,
+      html: notificationEmailHtml,
     };
 
     // Send email to you
@@ -113,29 +98,16 @@ export async function POST(request: NextRequest) {
 
     // Send confirmation email to the sender (if email provided)
     if (email) {
+      // Generate HTML for thank you email using React Email
+      const thankYouEmailHtml = await render(
+        ThankYouEmail({ name, message })
+      );
+
       const viewerMailOptions = {
         from: validEnv.GMAIL_APP_ID,
         to: email,
         subject: "Thank you for your message!",
-        html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #333; border-bottom: 2px solid #eee; padding-bottom: 10px;">
-              Thank you for reaching out!
-            </h2>
-            <p>Hi ${name ?? "there"},</p>
-            <p>Thank you${name ? ` ${name}` : ""} for taking the time to reach out through my portfolio. I truly appreciate your message! 😊</p>
-            <p>I&apos;ve received your message and will get back to you as soon as possible.</p>
-            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; margin: 20px 0;">
-              <p style="margin: 0; font-weight: bold;">Your message:</p>
-              <p style="margin: 10px 0 0 0; white-space: pre-wrap;">${message}</p>
-            </div>
-            <p>If you have any additional thoughts or questions, please don&apos;t hesitate to reach out again.</p>
-            <p>Thanks again for your interest in my work!</p>
-            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
-              <p>Best regards,<br />Suraj Gaud</p>
-            </div>
-          </div>
-        `,
+        html: thankYouEmailHtml,
       };
 
       viewerResponse = await transporter.sendMail(viewerMailOptions) as EmailResponse;

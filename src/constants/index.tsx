@@ -1,4 +1,4 @@
-import { DribbbleLogoIcon, BehanceLogoIcon, EnvelopeSimpleIcon, LinkedinLogoIcon, XLogoIcon } from "@phosphor-icons/react";
+import { XLogoIcon, DribbbleLogoIcon, BehanceLogoIcon, EnvelopeSimpleIcon, LinkedinLogoIcon } from "~/components/phosphorous-icons";
 
 export const socialLinkEnum = {
   x: "https://x.com/ritss32",

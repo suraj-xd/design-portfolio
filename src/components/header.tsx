@@ -1,4 +1,4 @@
-import { ArrowLeftIcon } from "@phosphor-icons/react";
+import { ArrowLeftIcon } from "./phosphorous-icons";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

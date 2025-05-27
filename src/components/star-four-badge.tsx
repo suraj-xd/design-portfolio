@@ -1,8 +1,8 @@
-import { StarFourIcon } from "@phosphor-icons/react";
+import { StarFourIconSimple } from "./phosphorous-icons";
 
 export default function StarFourBadge({
   title,
-  icon = <StarFourIcon size={12} />,
+  icon = <StarFourIconSimple />,
 }: {
   title: string;
   icon?: React.ReactNode;

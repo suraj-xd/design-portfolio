@@ -1,10 +1,10 @@
 "use client";
 
-import { ArrowUpRightIcon, CardsThreeIcon } from "@phosphor-icons/react";
 import { useState } from "react";
 import { projectsData } from "~/constants/projects";
 import ProjectTooltip from "./project-tooltip";
 import Link from "next/link";
+import { ArrowUpRightIcon, CardsThreeIcon } from "~/components/phosphorous-icons";
 
 export default function Projects() {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
@@ -12,7 +12,7 @@ export default function Projects() {
   return (
     <div className="flex w-full flex-col items-start justify-start">
       <div className="flex items-center justify-start gap-1 rounded-2xl rounded-b-none bg-gray-100 px-4 py-2 font-serif text-sm leading-tight text-black">
-        <CardsThreeIcon size={12} />
+        <CardsThreeIcon />
         latest projects
       </div>
 
@@ -26,7 +26,7 @@ export default function Projects() {
                 onMouseLeave={() => setHoveredProject(null)}
               >
                 {project.name}
-                <ArrowUpRightIcon size={12} />
+                <ArrowUpRightIcon />
               </div>
             </Link>
           </ProjectTooltip>

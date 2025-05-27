@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { aiTools } from "~/constants/ai-tools";
 import StarFourBadge from "./star-four-badge";
-import { SparkleIcon } from "@phosphor-icons/react";
+import { SparkleIcon } from "./phosphorous-icons";
 
 export default function AiToolsList() {
   return (
     <div className="mt-5 flex w-full flex-col items-start justify-start gap-3">
-      <StarFourBadge title="ai tools" icon={<SparkleIcon size={12} />} />
+      <StarFourBadge title="ai tools" icon={<SparkleIcon />} />
       {/* AI Tools */}
       <div className="flex flex-wrap items-center justify-start gap-1">
         {aiTools.map((tool) => (

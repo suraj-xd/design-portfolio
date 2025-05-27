@@ -1,4 +1,4 @@
-import { XIcon } from "@phosphor-icons/react";
+import { XIcon } from "../phosphorous-icons";
 
 export default function ErrorBanner({
   message,
@@ -10,7 +10,7 @@ export default function ErrorBanner({
   return (
     <div className="col-span-2 flex w-fit items-center justify-start gap-1 rounded-lg bg-red-50 px-3 py-2 text-xs text-red-700">
       {message}
-      <XIcon size={12} onClick={onClose} />
+      <XIcon onClick={onClose} />
     </div>
   );
 }
