@@ -32,7 +32,7 @@ export const env = createEnv({
     GMAIL_APP_ID: process.env.GMAIL_APP_ID,
     GMAIL_APP_PASSWORD: process.env.GMAIL_APP_PASSWORD,
     EMAIL_TO: process.env.EMAIL_TO,
-    PROD_WEBSITE_URL: process.env.NEXT_PUBLIC_PROD_WEBSITE_URL
+    PROD_WEBSITE_URL: process.env.PROD_WEBSITE_URL
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**

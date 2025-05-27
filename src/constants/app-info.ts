@@ -16,5 +16,5 @@ export const appInfo = {
 };
 
 export const prodUrl =
-  process.env.NEXT_PUBLIC_PROD_WEBSITE_URL ??
+  process.env.PROD_WEBSITE_URL ??
   "https://design-portfolio-eight-gules.vercel.app/";
