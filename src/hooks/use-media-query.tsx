@@ -17,10 +17,11 @@ function listen(query: MediaQueryList, callback: MediaQueryCallback) {
 export type UseMediaQueryOptions = {
   fallback?: boolean;
   ssr?: boolean;
-  getWindow?(): typeof window;
+  getWindow?: () => typeof window;
 };
 
 export function useMediaQuery(
+  this: void,
   query: string,
   options: UseMediaQueryOptions = {}
 ): boolean {
