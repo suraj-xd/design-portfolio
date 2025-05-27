@@ -27,9 +27,9 @@ type EnvSchema = z.infer<typeof envSchema>;
 // Validate environment variables
 function validateEnv(): EnvSchema {
   const parsed = envSchema.safeParse({
-    GMAIL_APP_ID: env.GMAIL_APP_ID as string,
-    GMAIL_APP_PASSWORD: env.GMAIL_APP_PASSWORD as string,
-    EMAIL_TO: env.EMAIL_TO as string,
+    GMAIL_APP_ID: env.GMAIL_APP_ID,
+    GMAIL_APP_PASSWORD: env.GMAIL_APP_PASSWORD,
+    EMAIL_TO: env.EMAIL_TO,
   });
 
   if (!parsed.success) {
