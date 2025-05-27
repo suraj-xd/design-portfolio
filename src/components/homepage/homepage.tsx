@@ -10,7 +10,11 @@ import Metatags from "../comman/metatags";
 export default async function Homepage() {
   return (
     <React.Fragment>
-      <Metatags title="Home" description="Portfolio | Ritu Gaur - UI/UX Designer" image="/og-image.png" />
+      <Metatags
+        title="Home"
+        description="Portfolio | Ritu Gaur - UI/UX Designer"
+        image="/og-image.png"
+      />
       <HeroBanner
         title="Ritu Gaur"
         subtitle="design • ui/ux • branding • no code"

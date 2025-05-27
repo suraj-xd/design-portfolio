@@ -4,7 +4,10 @@ import { useState } from "react";
 import { projectsData } from "~/constants/projects";
 import ProjectTooltip from "./project-tooltip";
 import Link from "next/link";
-import { ArrowUpRightIcon, CardsThreeIcon } from "~/components/phosphorous-icons";
+import {
+  ArrowUpRightIcon,
+  CardsThreeIcon,
+} from "~/components/phosphorous-icons";
 
 export default function Projects() {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);

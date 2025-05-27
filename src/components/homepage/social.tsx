@@ -3,7 +3,7 @@ import { socialLinks } from "~/constants";
 
 export default function Social() {
   return (
-    <div className="mb-8 md:mb-12 flex flex-wrap items-center gap-4 md:gap-6">
+    <div className="mb-8 flex flex-wrap items-center gap-4 md:mb-12 md:gap-6">
       {socialLinks.map((link) => (
         <Link
           href={link.href}

@@ -1,10 +1,6 @@
 import { StarFourIcon } from "../phosphorous-icons";
 
-export default function OpenToWork({
-  openToWork,
-}: {
-  openToWork: boolean;
-}) {
+export default function OpenToWork({ openToWork }: { openToWork: boolean }) {
   if (!openToWork) return null;
 
   return (

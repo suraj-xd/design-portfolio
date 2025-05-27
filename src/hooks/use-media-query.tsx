@@ -1,13 +1,13 @@
-import * as React from 'react';
+import * as React from "react";
 
-import { useCallbackRef } from './use-callback-ref';
+import { useCallbackRef } from "./use-callback-ref";
 
 type MediaQueryCallback = (event: MediaQueryListEvent) => void;
 
 function listen(query: MediaQueryList, callback: MediaQueryCallback) {
   try {
-    query.addEventListener('change', callback);
-    return () => query.removeEventListener('change', callback);
+    query.addEventListener("change", callback);
+    return () => query.removeEventListener("change", callback);
   } catch {
     query.addListener(callback);
     return () => query.removeListener(callback);
@@ -23,7 +23,7 @@ export type UseMediaQueryOptions = {
 export function useMediaQuery(
   this: void,
   query: string,
-  options: UseMediaQueryOptions = {}
+  options: UseMediaQueryOptions = {},
 ): boolean {
   const { fallback, ssr = true, getWindow } = options;
   const getWin = useCallbackRef(getWindow);
@@ -31,7 +31,7 @@ export function useMediaQuery(
     media: query,
     matches: !ssr
       ? (getWin() ?? window).matchMedia?.(query)?.matches
-      : !!fallback
+      : !!fallback,
   }));
 
   React.useEffect(() => {
@@ -39,7 +39,7 @@ export function useMediaQuery(
     setValue((prev) => {
       const current = {
         media: query,
-        matches: win.matchMedia(query).matches
+        matches: win.matchMedia(query).matches,
       };
 
       return prev.matches === current.matches && prev.media === current.media

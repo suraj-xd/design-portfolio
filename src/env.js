@@ -11,7 +11,7 @@ export const env = createEnv({
     GMAIL_APP_ID: z.string().min(1, "Gmail App ID is required"),
     GMAIL_APP_PASSWORD: z.string().min(1, "Gmail App Password is required"),
     EMAIL_TO: z.string().email("Valid email is required for EMAIL_TO"),
-    PROD_WEBSITE_URL: z.string().url("")
+    PROD_WEBSITE_URL: z.string().url(""),
   },
 
   /**
@@ -32,7 +32,7 @@ export const env = createEnv({
     GMAIL_APP_ID: process.env.GMAIL_APP_ID,
     GMAIL_APP_PASSWORD: process.env.GMAIL_APP_PASSWORD,
     EMAIL_TO: process.env.EMAIL_TO,
-    PROD_WEBSITE_URL: process.env.PROD_WEBSITE_URL
+    PROD_WEBSITE_URL: process.env.PROD_WEBSITE_URL,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**

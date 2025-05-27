@@ -5,7 +5,8 @@ export default function Manifest(): MetadataRoute.Manifest {
   return {
     name: appInfo.title || "Ritu Gaur - UI/UX Designer",
     short_name: appInfo.title || "Ritu Gaur - UI/UX Designer",
-    description: appInfo.description || "Portfolio | Ritu Gaur - UI/UX & Branding",
+    description:
+      appInfo.description || "Portfolio | Ritu Gaur - UI/UX & Branding",
     start_url: "/",
     display: "standalone",
     background_color: "#fdfff4",

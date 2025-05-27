@@ -72,9 +72,7 @@ export const ContactNotificationEmail = ({
 
         {/* Footer */}
         <Section style={footer}>
-          <Text style={footerText}>
-            Sent from your portfolio contact form
-          </Text>
+          <Text style={footerText}>Sent from your portfolio contact form</Text>
           <Text style={footerSubtext}>
             {new Date().toLocaleDateString("en-US", {
               weekday: "long",
@@ -217,4 +215,4 @@ const footerSubtext = {
   color: "#9ca3af",
   fontSize: "12px",
   margin: "0",
-}; 
+};

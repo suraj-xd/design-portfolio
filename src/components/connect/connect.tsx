@@ -16,7 +16,6 @@ const InputField = ({
   disabled,
   className,
 }: {
-
   type: string;
   name: string;
   placeholder: string;
@@ -36,7 +35,7 @@ const InputField = ({
       disabled={disabled}
       className={cn(
         "w-full border-none px-2 py-2 outline-none focus-within:outline-none disabled:bg-transparent disabled:text-gray-500",
-        className
+        className,
       )}
       maxLength={name === "message" ? 1000 : undefined}
       autoComplete="off"
@@ -48,12 +47,14 @@ export default function Connect() {
   const [formData, setFormData] = useState<FormData>({
     message: "",
     email: "",
-    name: ""
+    name: "",
   });
   const [formState, setFormState] = useState<FormState>("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -101,8 +102,6 @@ export default function Connect() {
     }
   };
 
-
-
   return (
     <div className="mt-5 flex flex-col items-start justify-start gap-3">
       <form
@@ -110,9 +109,9 @@ export default function Connect() {
         className="grid w-full grid-cols-1 gap-2 md:grid-cols-2"
       >
         {/* Name */}
-        <InputField 
-          type="text" 
-          name="name" 
+        <InputField
+          type="text"
+          name="name"
           placeholder="☃︎ your good name"
           value={formData.name}
           onChange={handleChange}
@@ -146,15 +145,15 @@ export default function Connect() {
           />
 
           {/* Submit Button */}
-          <SubmitMessageButton
-            formState={formState}
-            formData={formData}
-          />
+          <SubmitMessageButton formState={formState} formData={formData} />
         </div>
 
         {/* Error Message */}
         {formState === "error" && errorMessage && (
-          <ErrorBanner message={errorMessage} onClose={() => setFormState("idle")} />
+          <ErrorBanner
+            message={errorMessage}
+            onClose={() => setFormState("idle")}
+          />
         )}
 
         {/* Success Message */}

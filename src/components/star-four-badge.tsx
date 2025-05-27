@@ -13,4 +13,4 @@ export default function StarFourBadge({
       {title}
     </div>
   );
-}   
+}

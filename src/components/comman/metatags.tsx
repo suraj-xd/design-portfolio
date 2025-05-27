@@ -47,8 +47,14 @@ const Metatags = ({
       <meta name="bingbot" content="index, follow" />
       <meta name="yandexbot" content="index, follow" />
       <meta name="sitemap" content={`${prodUrl}/sitemap.xml`} />
-      <meta name="google-site-verification" content="google-site-verification=google-site-verification" />
-      <meta name="google-site-verification" content="google-site-verification" />
+      <meta
+        name="google-site-verification"
+        content="google-site-verification=google-site-verification"
+      />
+      <meta
+        name="google-site-verification"
+        content="google-site-verification"
+      />
     </Head>
   );
 };

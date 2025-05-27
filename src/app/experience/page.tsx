@@ -8,7 +8,11 @@ import Metatags from "~/components/comman/metatags";
 export default function ExperiencePage() {
   return (
     <React.Fragment>
-      <Metatags title="Experience" description="My professional experience" image="/experience-og-image.png" />
+      <Metatags
+        title="Experience"
+        description="My professional experience"
+        image="/experience-og-image.png"
+      />
       <HeroBanner
         title="Experience"
         subtitle="recent freelance, internships"

@@ -62,7 +62,7 @@ function CheckIcon() {
 }
 
 function CloseIcon() {
-  return <PhosphorXIcon size={12}/>;
+  return <PhosphorXIcon size={12} />;
 }
 
 function SealCheckIcon() {
@@ -70,9 +70,12 @@ function SealCheckIcon() {
 }
 
 function ArrowUpRightIcon() {
-  return <PhosphorArrowUpRightIcon
-  className="mt-1 flex-shrink-0 text-gray-400 transition-colors hover:text-gray-600"
-  size={12} />;
+  return (
+    <PhosphorArrowUpRightIcon
+      className="mt-1 flex-shrink-0 text-gray-400 transition-colors hover:text-gray-600"
+      size={12}
+    />
+  );
 }
 
 function CardsThreeIcon() {
@@ -91,7 +94,7 @@ function EnvelopeSimpleIcon() {
   return <PhosphorEnvelopeSimpleIcon size={12} />;
 }
 
-function LinkedinLogoIcon() {   
+function LinkedinLogoIcon() {
   return <PhosphorLinkedinLogoIcon size={12} />;
 }
 

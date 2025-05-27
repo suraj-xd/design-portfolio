@@ -22,7 +22,9 @@ interface ThankYouEmailProps {
 export const ThankYouEmail = ({ name, message }: ThankYouEmailProps) => (
   <Html>
     <Head />
-    <Preview>{"Thank you for reaching out! I'll get back to you soon."}</Preview>
+    <Preview>
+      {"Thank you for reaching out! I'll get back to you soon."}
+    </Preview>
     <Body style={main}>
       <Container style={container}>
         {/* Header */}
@@ -40,9 +42,7 @@ export const ThankYouEmail = ({ name, message }: ThankYouEmailProps) => (
 
         {/* Main Content */}
         <Section style={content}>
-          <Text style={greeting}>
-            Hi {name ?? "there"} 👋
-          </Text>
+          <Text style={greeting}>Hi {name ?? "there"} 👋</Text>
 
           <Text style={paragraph}>
             Thank you for taking the time to reach out through my portfolio. I
@@ -73,10 +73,7 @@ export const ThankYouEmail = ({ name, message }: ThankYouEmailProps) => (
             <Text style={ctaText}>
               While you wait, check out my latest work:
             </Text>
-            <Button
-              style={button}
-              href={prodUrl}
-            >
+            <Button style={button} href={prodUrl}>
               View Portfolio
             </Button>
           </Section>
@@ -109,9 +106,7 @@ export const ThankYouEmail = ({ name, message }: ThankYouEmailProps) => (
             <br />
             <strong>Suraj Gaud</strong>
           </Text>
-          <Text style={footerText}>
-            Designer & Developer
-          </Text>
+          <Text style={footerText}>Designer & Developer</Text>
           <Text style={footerSubtext}>
             {`This is an automated response. I'll personally reply to your message soon!`}
           </Text>
@@ -321,4 +316,4 @@ const footerSubtext = {
   fontSize: "12px",
   margin: "0",
   lineHeight: "1.4",
-}; 
+};

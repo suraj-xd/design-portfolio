@@ -11,7 +11,7 @@ export default function LayoutWrapper({
   return (
     <main className="mx-auto flex min-h-screen max-w-2xl flex-col items-center justify-between gap-20 font-sans">
       {/* Header */}
-      <div className="flex flex-col w-full">
+      <div className="flex w-full flex-col">
         <Header />
         {/* Main Content */}
         <div className="mx-auto mt-5 w-full px-8">{children}</div>
