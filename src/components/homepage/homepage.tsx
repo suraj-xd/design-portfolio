@@ -7,10 +7,12 @@ import React from "react";
 import HeroBanner from "../hero-banner";
 import Bio from "./bio";
 import Projects from "./projects/projects";
+import Metatags from "../comman/metatags";
 
 export default function Homepage() {
   return (
     <React.Fragment>
+      <Metatags title="Home" description="Portfolio | Ritu Gaur - UI/UX Designer" image="/og-image.png" />
       <HeroBanner
         title="Ritu Gaur"
         subtitle="design • ui/ux • branding • no code"

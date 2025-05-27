@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website built with the powerful [T3 Stack](https://create.t3.gg/). This portfolio showcases my work, experience, and provides a way for potential clients or employers to connect with me.
 
-# Live Link: [https://ritu-gaur.vercel.app/](https://ritu-gaur.vercel.app/)
+# Live Link: [https://design-portfolio-eight-gules.vercel.app/](https://design-portfolio-eight-gules.vercel.app/)
 
 ## 🌟 Features
 

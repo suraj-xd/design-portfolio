@@ -3,6 +3,8 @@ import * as Tooltip from "@radix-ui/react-tooltip";
 import Image from "next/image";
 import Link from "next/link";
 import type { LatestProjectType } from "./types";
+import { useMediaQuery } from "~/hooks/use-media-query";
+import { MediaQueries } from "~/constants/media-queries";
 
 export default function ProjectTooltip({
     project,
@@ -11,6 +13,12 @@ export default function ProjectTooltip({
     project: LatestProjectType;
     children: React.ReactNode;
   }) {
+    const lgUp = useMediaQuery(MediaQueries.SmUp, { ssr: true, fallback: true });
+  
+    if (!lgUp) {
+      return <>{children}</>;
+    }
+
     return (
       <Tooltip.Provider delayDuration={100}>
         <Tooltip.Root>

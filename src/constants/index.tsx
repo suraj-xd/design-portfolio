@@ -5,7 +5,7 @@ export const socialLinkEnum = {
   dribbble: "https://dribbble.com/thisisritu",
   behance: "https://www.behance.net/thisisritu",
   linkedin: "https://www.linkedin.com/in/ritu-gaur-b717a0315/",
-  email: "ritu.gaur@gmail.com",
+  email: "ritugaur564@gmail.com",
 };
 
 export const socialLinks = [
@@ -31,7 +31,7 @@ export const socialLinks = [
   },
   {
     name: "email",
-    href: "ritu.gaur@gmail.com",
+    href: "mailto:ritugaur564@gmail.com",
     icon: <EnvelopeSimpleIcon />,
   },
 ];

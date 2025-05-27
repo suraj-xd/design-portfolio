@@ -4,6 +4,45 @@ import { useState } from "react";
 import ErrorBanner from "./error-banner";
 import SuccessBanner from "./success-banner";
 import type { FormState, FormData } from "./types";
+import SubmitMessageButton from "./submit-message-button";
+import { cn } from "~/utils";
+
+const InputField = ({
+  type,
+  name,
+  placeholder,
+  value,
+  onChange,
+  disabled,
+  className,
+}: {
+
+  type: string;
+  name: string;
+  placeholder: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  disabled: boolean;
+  className?: string;
+}) => (
+  <div className="flex items-center justify-start gap-1 rounded-full border border-gray-200 px-4 py-2 text-xs font-medium text-black">
+    <input
+      type={type}
+      name={name}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+      required
+      disabled={disabled}
+      className={cn(
+        "w-full border-none px-2 py-2 outline-none focus-within:outline-none disabled:bg-transparent disabled:text-gray-500",
+        className
+      )}
+      maxLength={name === "message" ? 1000 : undefined}
+      autoComplete="off"
+    />
+  </div>
+);
 
 export default function Connect() {
   const [formData, setFormData] = useState<FormData>({
@@ -14,7 +53,7 @@ export default function Connect() {
   const [formState, setFormState] = useState<FormState>("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -63,30 +102,6 @@ export default function Connect() {
   };
 
 
-  const InputField = ({
-    type,
-    name,
-    placeholder,
-  }: {
-    type: string;
-    name: string;
-    placeholder: string;
-  }) => (
-    <div className="flex items-center justify-start gap-1 rounded-full border border-gray-200 px-4 py-2 text-xs font-medium text-black">
-      <input
-        type={type}
-        name={name}
-        placeholder={placeholder}
-        value={formData[name as keyof typeof formData]}
-        onChange={handleChange}
-        required
-        autoFocus={name === "name"}
-        disabled={formState === "loading"}
-        className="w-full border-none px-2 py-2 outline-none focus-within:outline-none disabled:bg-transparent disabled:text-gray-500"
-        maxLength={name === "message" ? 1000 : undefined}
-      />
-    </div>
-  );
 
   return (
     <div className="mt-5 flex flex-col items-start justify-start gap-3">
@@ -95,13 +110,24 @@ export default function Connect() {
         className="grid w-full grid-cols-1 gap-2 md:grid-cols-2"
       >
         {/* Name */}
-        <InputField type="text" name="name" placeholder="☃︎ your good name" />
+        <InputField 
+          type="text" 
+          name="name" 
+          placeholder="☃︎ your good name"
+          value={formData.name}
+          onChange={handleChange}
+          disabled={formState === "loading"}
+          className="capitalize"
+        />
 
         {/* Email */}
         <InputField
           type="email"
           name="email"
           placeholder="⎄ your important email"
+          value={formData.email}
+          onChange={handleChange}
+          disabled={formState === "loading"}
         />
 
         <div className="col-span-2 flex items-center justify-start gap-1 rounded-full border border-gray-200 py-2 pr-2 pl-4 text-xs font-medium text-black">
@@ -116,10 +142,14 @@ export default function Connect() {
             disabled={formState === "loading"}
             className="w-full border-none px-2 py-2 outline-none focus-within:outline-none disabled:bg-transparent disabled:text-gray-500"
             maxLength={1000}
+            autoComplete="off"
           />
 
           {/* Submit Button */}
-         
+          <SubmitMessageButton
+            formState={formState}
+            formData={formData}
+          />
         </div>
 
         {/* Error Message */}
