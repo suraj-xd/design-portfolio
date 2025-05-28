@@ -10,8 +10,10 @@ import {
   Text,
   Hr,
   Button,
+  Img
 } from "@react-email/components";
 import * as React from "react";
+import { figmaProtoLink, socialLinkEnum } from "~/constants";
 import { prodUrl } from "~/constants/app-info";
 
 interface ThankYouEmailProps {
@@ -30,7 +32,7 @@ export const ThankYouEmail = ({ name, message }: ThankYouEmailProps) => (
         {/* Header */}
         <Section style={header}>
           <div style={logoContainer}>
-            <div style={logo}>SG</div>
+          <Img style={img} src="/flower.jpg" alt="logo" width={64} height={64} />
           </div>
           <Heading style={h1}>Thank you for reaching out!</Heading>
           <Text style={subtitle}>
@@ -73,8 +75,10 @@ export const ThankYouEmail = ({ name, message }: ThankYouEmailProps) => (
             <Text style={ctaText}>
               While you wait, check out my latest work:
             </Text>
-            <Button style={button} href={prodUrl}>
-              View Portfolio
+          </Section>
+          <Section style={ctaSection}>
+            <Button style={button} href={figmaProtoLink}>
+              My Work
             </Button>
           </Section>
         </Section>
@@ -85,16 +89,20 @@ export const ThankYouEmail = ({ name, message }: ThankYouEmailProps) => (
         <Section style={socialSection}>
           <Text style={socialText}>Connect with me:</Text>
           <div style={socialLinks}>
-            <Link href="https://linkedin.com/in/surajgaud" style={socialLink}>
+            <Link href={socialLinkEnum.linkedin} style={socialLink}>
               LinkedIn
             </Link>
             <span style={socialDivider}>•</span>
-            <Link href="https://github.com/surajgaud" style={socialLink}>
-              GitHub
+            <Link href={socialLinkEnum.x} style={socialLink}>
+              X
             </Link>
             <span style={socialDivider}>•</span>
-            <Link href="https://twitter.com/surajgaud" style={socialLink}>
-              Twitter
+            <Link href={socialLinkEnum.dribbble} style={socialLink}>
+              Dribbble
+            </Link>
+            <span style={socialDivider}>•</span>
+            <Link href={socialLinkEnum.behance} style={socialLink}>
+              Behance
             </Link>
           </div>
         </Section>
@@ -104,9 +112,9 @@ export const ThankYouEmail = ({ name, message }: ThankYouEmailProps) => (
           <Text style={signature}>
             Best regards,
             <br />
-            <strong>Suraj Gaud</strong>
+            <strong>Ritu Gaur</strong>
           </Text>
-          <Text style={footerText}>Designer & Developer</Text>
+          <Text style={footerText}>Student & Designer</Text>
           <Text style={footerSubtext}>
             {`This is an automated response. I'll personally reply to your message soon!`}
           </Text>
@@ -117,6 +125,14 @@ export const ThankYouEmail = ({ name, message }: ThankYouEmailProps) => (
 );
 
 export default ThankYouEmail;
+
+const img = {
+  width: "64px",
+  height: "64px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+};
 
 const main = {
   backgroundColor: "#f8fafc",
@@ -133,12 +149,20 @@ const container = {
 const header = {
   textAlign: "center" as const,
   padding: "32px 0",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: "12px",
+  width: "100%",
 };
 
 const logoContainer = {
   margin: "0 auto 24px",
   width: "64px",
   height: "64px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
 };
 
 const logo = {
@@ -234,7 +258,6 @@ const ctaSection = {
   textAlign: "center" as const,
   margin: "32px 0",
   padding: "24px",
-  backgroundColor: "#f9fafb",
   borderRadius: "8px",
 };
 

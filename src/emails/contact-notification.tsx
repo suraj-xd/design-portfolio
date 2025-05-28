@@ -32,7 +32,13 @@ export const ContactNotificationEmail = ({
         {/* Header */}
         <Section style={header}>
           <div style={logoContainer}>
-            <div style={logo}>SG</div>
+            <Img
+              style={img}
+              src="/flower.jpg"
+              alt="logo"
+              width={64}
+              height={64}
+            />
           </div>
           <Heading style={h1}>New Contact Message from Portfolio</Heading>
           <Text style={subtitle}>
@@ -90,6 +96,15 @@ export const ContactNotificationEmail = ({
 );
 
 export default ContactNotificationEmail;
+
+const img = {
+  width: "64px",
+  height: "64px",
+  borderRadius: "50%",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+};
 
 const main = {
   backgroundColor: "#f8fafc",

@@ -107,7 +107,7 @@ export async function POST(request: NextRequest) {
       const thankYouEmailHtml = await render(ThankYouEmail({ name, message }));
 
       const viewerMailOptions = {
-        from: validEnv.GMAIL_APP_ID,
+        from: validEnv.EMAIL_TO,
         to: email,
         subject: "Thank you for your message!",
         html: thankYouEmailHtml,
