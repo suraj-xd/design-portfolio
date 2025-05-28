@@ -10,14 +10,14 @@ export const experienceList = [
     name: "Coding 75",
     logo: "/coding75.jpeg",
     position: "Designer Intern | Freelance",
-    date: "December 2024",
+    date: "Fall 2024",
     projects: "Projects",
   },
   {
     name: "MLB Fellowship",
     logo: "/mlb.png",
     position: "Designer Intern | Freelance",
-    date: "December 2024",
+    date: "Spring 2024",
     projects: "Projects",
   },
 ];

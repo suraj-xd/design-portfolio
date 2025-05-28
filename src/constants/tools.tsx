@@ -42,6 +42,10 @@ export const tools = [
     ),
   },
   {
+    name: "Framer",
+    icon: <Image src="/framer.svg" alt="framer" width={15} height={12} />,
+  },
+  {
     name: "Spline",
     icon: <Image src="/spline_logo.webp" alt="spline" width={12} height={12} />,
   },

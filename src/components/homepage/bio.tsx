@@ -2,7 +2,7 @@ export default function Bio() {
   return (
     <div className="mb-12 max-w-3xl">
       <p className="text-sm leading-relaxed text-gray-700">
-        Hi there, I&apos;m Hritu, a designer focused on{" "}
+        Hi there, I&apos;m Hritu, a student and designer focused on{" "}
         <span className="font-medium text-gray-900">digital experiences</span>.
         I blend <span className="font-medium text-gray-900">aesthetics</span>{" "}
         with <span className="font-medium text-gray-900">functionality</span> to
