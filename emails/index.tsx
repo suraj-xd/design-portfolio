@@ -1,4 +1,4 @@
-import { ContactNotificationEmail } from "../src/emails/contact-notification";
-import { ThankYouEmail } from "../src/emails/thank-you";
+import ContactNotificationEmailReact from "./contact-notification";
+import ThankYouEmailReact from "./thank-you";
 
-export { ContactNotificationEmail, ThankYouEmail };
+export { ContactNotificationEmailReact, ThankYouEmailReact };

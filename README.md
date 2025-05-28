@@ -1,6 +1,6 @@
 # Design Portfolio
 
-A modern, responsive portfolio website built with the powerful [T3 Stack](https://create.t3.gg/). This portfolio showcases my work, experience, and provides a way for potential clients or employers to connect with me.
+A modern, responsive, fully server-side rendered portfolio website built with the powerful [T3 Stack](https://create.t3.gg/). This portfolio showcases my work, experience, and provides a way for potential clients or employers to connect with me.
 
 # Live Link: [https://design-portfolio-eight-gules.vercel.app/](https://design-portfolio-eight-gules.vercel.app/)
 
@@ -8,6 +8,7 @@ A modern, responsive portfolio website built with the powerful [T3 Stack](https:
 
 - **Modern Design**: Built with Next.js 15 and Tailwind CSS for a beautiful, responsive interface
 - **Type Safety**: End-to-end type safety with TypeScript
+- **Server-Side Rendering**: Fully server-side rendered for optimal performance and SEO
 - **Contact Form**: Integrated email functionality using Gmail API
 - **Dynamic Routes**:
   - `/`: Home page/Portfolio showcase
@@ -16,7 +17,7 @@ A modern, responsive portfolio website built with the powerful [T3 Stack](https:
 
 ## 🛠️ Tech Stack
 
-- **Framework**: [Next.js 15](https://nextjs.org) - React framework for production
+- **Framework**: [Next.js 15](https://nextjs.org) - React framework for production with SSR
 - **Styling**: [Tailwind CSS](https://tailwindcss.com) - Utility-first CSS framework
 - **Email**: Gmail API integration for contact form
 - **Type Safety**: TypeScript for enhanced development experience
@@ -60,39 +61,3 @@ The contact form uses Gmail API for sending emails. To set it up:
 3. Use the generated 16-character password in your `.env.local`
 
 ## 📁 Project Structure
-
-```
-src/
-├── app/                # Next.js 14 app directory
-│   ├── page.tsx       # Home page
-│   ├── experience/    # Experience page
-│   └── connect/       # Contact page
-├── components/        # Reusable React components
-├── constants/         # Application constants
-├── utils/            # Utility functions
-└── styles/           # Global styles and Tailwind config
-```
-
-## 🔄 Development Workflow
-
-1. Make changes in the `src` directory
-2. Components are in `src/components`
-3. Add new routes by creating directories in `src/app`
-4. Style using Tailwind CSS utility classes
-
-## 📦 Deployment
-
-This project can be deployed on:
-- [Vercel](https://create.t3.gg/en/deployment/vercel)
-- [Netlify](https://create.t3.gg/en/deployment/netlify)
-- [Docker](https://create.t3.gg/en/deployment/docker)
-
-For detailed deployment instructions, follow the respective deployment guides.
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
-
-## 📝 License
-
-This project is MIT licensed.
