@@ -10,7 +10,7 @@ import {
   Text,
   Hr,
   Button,
-  Img
+  Img,
 } from "@react-email/components";
 import * as React from "react";
 import { figmaProtoLink, socialLinkEnum } from "~/constants";
@@ -40,10 +40,12 @@ export const ThankYouEmail = ({ name, message }: ThankYouEmailProps) => (
               height={64}
             />
           </div>
-          <Heading style={h1}>Thank you for reaching out!</Heading>
-          <Text style={subtitle}>
-            I appreciate you taking the time to connect with me
-          </Text>
+          <Container style={container}>
+            <Heading style={h1}>Thank you for reaching out!</Heading>
+            <Text style={subtitle}>
+              I appreciate you taking the time to connect with me
+            </Text>
+          </Container>
         </Section>
 
         <Hr style={hr} />

@@ -51,6 +51,31 @@ const emailSchema = z.object({
   name: z.string().optional(),
 });
 
+// Separate function to send thank you email in the background
+async function sendThankYouEmail(
+  transporter: Transporter,
+  senderEmail: string,
+  name: string | undefined,
+  message: string,
+  fromEmail: string,
+) {
+  try {
+    const thankYouEmailHtml = await render(ThankYouEmail({ name, message }));
+
+    const viewerMailOptions = {
+      from: fromEmail,
+      to: senderEmail,
+      subject: "Thank you for your message!",
+      html: thankYouEmailHtml,
+    };
+
+    await transporter.sendMail(viewerMailOptions);
+    console.log("Thank you email sent successfully");
+  } catch (error) {
+    console.error("Error sending thank you email:", error);
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
     // Validate environment variables first
@@ -99,30 +124,22 @@ export async function POST(request: NextRequest) {
       myMailOptions,
     )) as EmailResponse;
 
-    let viewerResponse: EmailResponse | null = null;
-
-    // Send confirmation email to the sender (if email provided)
+    // Send confirmation email to the sender in the background (if email provided)
     if (email) {
-      // Generate HTML for thank you email using React Email
-      const thankYouEmailHtml = await render(ThankYouEmail({ name, message }));
-
-      const viewerMailOptions = {
-        from: validEnv.EMAIL_TO,
-        to: email,
-        subject: "Thank you for your message!",
-        html: thankYouEmailHtml,
-      };
-
-      viewerResponse = (await transporter.sendMail(
-        viewerMailOptions,
-      )) as EmailResponse;
+      // Fire and forget - don't await (makes user experience feels faster)
+      void sendThankYouEmail(
+        transporter,
+        email,
+        name,
+        message,
+        validEnv.EMAIL_TO,
+      );
     }
 
     return NextResponse.json({
       success: true,
       message: "Email sent successfully!",
       myResponse: myResponse.messageId,
-      viewerResponse: viewerResponse?.messageId ?? null,
     });
   } catch (error) {
     console.error("Email sending error:", error);
