@@ -5,16 +5,15 @@ import React from "react";
 import HeroBanner from "../hero-banner";
 import Bio from "./bio";
 import Projects from "./projects/projects";
-import Metatags from "../comman/metatags";
+
+export const metadata = {
+  title: "Home | Ritu Gaur - UI/UX & Branding Designer",
+  description: "Portfolio | Ritu Gaur - UI/UX & Branding Designer",
+};
 
 export default async function Homepage() {
   return (
     <React.Fragment>
-      <Metatags
-        title="Home"
-        description="Portfolio | Ritu Gaur - UI/UX Designer"
-        image="/og-image.png"
-      />
       <HeroBanner
         title="Ritu Gaur"
         subtitle="design • ui/ux • branding • no code"

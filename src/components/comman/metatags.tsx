@@ -4,7 +4,7 @@ import { prodUrl } from "~/constants/app-info";
 
 const defaultTitle = "Ritu Gaur - UI/UX Designer";
 const defaultDescription = "Portfolio of Ritu Gaur - UI/UX & Branding";
-const defaultImage = "/og-image.png";
+const defaultImage = "https://i.postimg.cc/rFkhbJMp/og-image.png";
 const Metatags = ({
   title,
   description,
