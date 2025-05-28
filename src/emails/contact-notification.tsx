@@ -12,6 +12,7 @@ import {
   Hr,
 } from "@react-email/components";
 import * as React from "react";
+import { prodUrl } from "~/constants/app-info";
 
 interface ContactNotificationEmailProps {
   name?: string;
@@ -34,7 +35,7 @@ export const ContactNotificationEmail = ({
           <div style={logoContainer}>
             <Img
               style={img}
-              src="/flower.jpg"
+              src={`${prodUrl}/flower.jpg`}
               alt="logo"
               width={64}
               height={64}
@@ -100,7 +101,6 @@ export default ContactNotificationEmail;
 const img = {
   width: "64px",
   height: "64px",
-  borderRadius: "50%",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",

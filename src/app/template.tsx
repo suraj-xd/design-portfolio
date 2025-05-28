@@ -11,7 +11,7 @@ export default function Transition({
     <motion.div
       initial={{ y: 0, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ ease: "easeInOut", duration: 0.5 }}
+      transition={{ ease: "easeInOut", duration: 0.4 }}
     >
       {children}
     </motion.div>

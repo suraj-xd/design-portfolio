@@ -32,7 +32,13 @@ export const ThankYouEmail = ({ name, message }: ThankYouEmailProps) => (
         {/* Header */}
         <Section style={header}>
           <div style={logoContainer}>
-          <Img style={img} src="/flower.jpg" alt="logo" width={64} height={64} />
+            <Img
+              style={img}
+              src={`${prodUrl}/flower.jpg`}
+              alt="logo"
+              width={64}
+              height={64}
+            />
           </div>
           <Heading style={h1}>Thank you for reaching out!</Heading>
           <Text style={subtitle}>
