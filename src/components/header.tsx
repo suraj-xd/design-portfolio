@@ -8,7 +8,7 @@ import { homeUrl, navigationRoutes } from "~/constants/navigation-routes";
 export default function Header() {
   const pathname = usePathname();
   return (
-    <header className="mt-10 flex w-full items-center justify-between px-8 py-6">
+    <header className="mt-3 flex w-full items-center justify-between px-8 py-6 sm:mt-10">
       <div className="flex items-center">
         {pathname === homeUrl ? (
           <Image

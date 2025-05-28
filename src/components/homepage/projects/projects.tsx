@@ -19,7 +19,7 @@ export default function Projects() {
         latest projects
       </div>
 
-      <div className="flex items-center justify-start gap-1 rounded-full rounded-t-none">
+      <div className="flex flex-wrap items-center justify-start gap-1 rounded-full rounded-t-none">
         {projectsData.map((project, index) => (
           <ProjectTooltip key={project.id} project={project}>
             <Link href={project.href} target="_blank">

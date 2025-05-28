@@ -13,6 +13,8 @@ export const appInfo = {
     index: true,
     follow: true,
   },
+  viewport:
+    "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover",
 };
 
 export const prodUrl =

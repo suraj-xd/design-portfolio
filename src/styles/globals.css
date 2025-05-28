@@ -57,3 +57,12 @@ html, body {
   overscroll-behavior: none;
   background-color: #fdfff4;
 }
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea,
+select {
+  zoom: none;
+  -webkit-tap-highlight-color: transparent;
+}
