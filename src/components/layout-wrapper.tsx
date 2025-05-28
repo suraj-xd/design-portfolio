@@ -9,7 +9,7 @@ export default function LayoutWrapper({
   children: React.ReactNode;
 }) {
   return (
-    <main className="mx-auto flex min-h-screen max-w-2xl flex-col items-center justify-between gap-20 font-sans">
+    <main className="mx-auto flex min-h-dvh antialiased max-w-2xl flex-col items-center justify-between gap-20 font-sans">
       {/* Header */}
       <div className="flex w-full flex-col">
         <Header />
