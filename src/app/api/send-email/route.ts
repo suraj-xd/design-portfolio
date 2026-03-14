@@ -5,6 +5,8 @@ import { render } from "@react-email/render";
 import { env } from "~/env";
 import { ContactNotificationEmail } from "~/emails/contact-notification";
 import { ThankYouEmail } from "~/emails/thank-you";
+import { rateLimit } from "~/utils/rate-limit";
+import { prodUrl } from "~/constants/app-info";
 
 // Define the type for the request body
 interface EmailRequestBody {
@@ -78,6 +80,39 @@ async function sendThankYouEmail(
 
 export async function POST(request: NextRequest) {
   try {
+    // Rate limiting: 5 requests per minute per IP
+    const ip =
+      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+      "unknown";
+    const rateLimitResult = rateLimit(ip, { maxRequests: 5, windowMs: 60_000 });
+    if (!rateLimitResult.success) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Too many requests. Please try again later.",
+        },
+        {
+          status: 429,
+          headers: {
+            "Retry-After": String(rateLimitResult.retryAfterSeconds),
+          },
+        },
+      );
+    }
+
+    // CSRF protection: verify the request originates from our domain
+    const origin = request.headers.get("origin");
+    const allowedOrigins = [
+      prodUrl.replace(/\/$/, ""),
+      "http://localhost:3000",
+    ];
+    if (!origin || !allowedOrigins.includes(origin)) {
+      return NextResponse.json(
+        { success: false, error: "Forbidden" },
+        { status: 403 },
+      );
+    }
+
     // Validate environment variables first
     const validEnv = validateEnv();
 
@@ -112,8 +147,10 @@ export async function POST(request: NextRequest) {
     );
 
     // Email to you (the portfolio owner)
+    // Use authenticated Gmail as sender; include visitor's email in reply-to
     const myMailOptions = {
-      from: email ?? "noreply.portfolio@gmail.com",
+      from: validEnv.GMAIL_APP_ID,
+      replyTo: email,
       to: validEnv.EMAIL_TO,
       subject: "New Contact Form Message from Portfolio",
       html: notificationEmailHtml,
