@@ -24,6 +24,7 @@
     "@studio-freight/lenis": "^1.0.42",
     "@t3-oss/env-nextjs": "^0.12.0",
     "@types/nodemailer": "^6.4.17",
+    "@vercel/analytics": "^2.0.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.14.0",
     "next": "15.2.8",
