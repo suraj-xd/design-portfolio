@@ -1,5 +1,6 @@
 import "~/styles/globals.css";
 
+import { Analytics } from "@vercel/analytics/next";
 import { type Metadata } from "next";
 import LayoutWrapper from "~/components/layout-wrapper";
 import { metadata as appMetadata } from "~/constants/app-info";
@@ -24,6 +25,7 @@ export default function RootLayout({
     >
       <body>
         <LayoutWrapper>{children}</LayoutWrapper>
+        <Analytics />
       </body>
     </html>
   );
